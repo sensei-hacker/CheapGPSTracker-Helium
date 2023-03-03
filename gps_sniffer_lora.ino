@@ -1,36 +1,9 @@
-/*
- * HelTec Automation(TM) LoRaWAN 1.0.2 OTAA example use OTAA, CLASS A
- *
- * Function summary:
- *
- * - use internal RTC(150KHz);
- *
- * - Include stop mode and deep sleep mode;
- *
- * - Only ESP32 + LoRa series boards can use this library, need a license
- *   to make the code run(check you license here: http://www.heltec.cn/search );
- *
- * You can change some definition in "Commissioning.h" and "LoRaMac-definitions.h"
- *
- * HelTec AutoMation, Chengdu, China.
- * 成都惠利特自动化科技有限公司
- * https://heltec.org
- * support@heltec.cn
- *
- *this project also release in GitHub:
- *https://github.com/HelTecAutomation/ESP32_LoRaWAN
-*/
 
 #include "LoRaWan_APP.h"
 #include <Wire.h>               
 #include "HT_SSD1306Wire.h"
 
 #include <Preferences.h>
-
-
-/*license for Heltec ESP32 LoRaWan, quary your ChipID relevant license: http://resource.heltec.cn/search */
-uint32_t license[4] = {0xFC6228CB,0x6F737505,0xC5BA2B18,0xEB778765};
-
 
 
 uint8_t devEui[] = { 0x60, 0x81, 0xF9, 0x9A, 0xBF, 0x1C, 0xF8, 0x43 };
@@ -85,7 +58,6 @@ void VextON(void)
   digitalWrite(Vext, LOW);
 }
 
-// Add your initialization code here
 void setup()
 {
 
@@ -93,11 +65,9 @@ void setup()
   Serial.begin(115200);
   while (!Serial);
   SPI.begin(SCK,MISO,MOSI,SS);
-  // Mcu.init(SS,RST_LoRa,DIO0,DIO1,license);
   deviceState = DEVICE_STATE_INIT;
 }
 
-// The loop function is called in an endless loop
 void loop()
 {
   
