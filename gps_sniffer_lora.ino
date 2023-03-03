@@ -45,11 +45,41 @@ extern SSD1306Wire display;
 
 static void prepareTxFrame( uint8_t port )
 {
-    appDataSize = 4;//AppDataSize max value is 64
-    appData[0] = 0x00;
-    appData[1] = 0x01;
-    appData[2] = 0x02;
-    appData[3] = 0x03;
+  if (pos != NULL) {
+
+    appDataSize = 20; //AppDataSize max value is 64
+
+    appData[3] = pos->latitude >> 24;
+    appData[2] = pos->latitude >> 16;
+    appData[1] = pos->latitude >>  8;
+    appData[0] = pos->latitude;
+
+    appData[7] = pos->longitude >> 24;
+    appData[6] = pos->longitude >> 16;
+    appData[5] = pos->longitude >>  8;
+    appData[4] = pos->longitude;
+
+    appData[11] = pos->altitude_ellipsoid >> 24;
+    appData[10] = pos->altitude_ellipsoid >> 16;
+    appData[9] = pos->altitude_ellipsoid >> 8;
+    appData[8] = pos->altitude_ellipsoid;
+
+    appData[15] = speed >> 24;
+    appData[14] = speed >> 16;
+    appData[13] = speed >> 8;
+    appData[12] = speed;
+
+    int32_t accuracy = pos->horizontal_accuracy / 1000; // UBX reports it in mm.
+
+    appData[19] = accuracy >> 24;
+    appData[18] = accuracy >> 16;
+    appData[17] = accuracy >>  8;
+    appData[16] = accuracy;
+
+  } else {
+    appDataSize = 1;
+    appData[0] = 0;
+  }
 }
 
 void VextON(void)
