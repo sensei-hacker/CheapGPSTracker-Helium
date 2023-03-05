@@ -1,5 +1,7 @@
 <?php
-  
+
+# For use as an HTTP integration with Helium Console.
+
 $json = file_get_contents('php://input');
 var_dump($json);
 
