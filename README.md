@@ -4,6 +4,8 @@ This project provides code and information to build a GPS tracking
 device to help find your lost drone, plane, or other item. It's built
 with a $10 LORA development board.
 
+the position is reported every few seconds using rhe worldwide Helium network. You can try Helium for free. $10 gets you enough credits to last a lifetime for a deone / plane tracker.
+
 It can listen in on an existing GPS wire that is connected to a 
 flight controller, or you can use a board with a built-in GPS (about $25).
 
@@ -21,3 +23,4 @@ flight controller.
 
 
 
+Flash the [gps_sniffer_lora.ino](gps_sniffer_lora.ino) file feom a his repo to your board. You can customize it to your liking.
