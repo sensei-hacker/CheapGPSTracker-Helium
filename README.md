@@ -23,4 +23,4 @@ flight controller.
 
 
 
-Flash the [gps_sniffer_lora.ino](gps_sniffer_lora.ino) file feom a his repo to your board. You can customize it to your liking.
+Flash the [gps_sniffer_lora.ino](https://raw.githubusercontent.com/sensei-hacker/CheapGPSTracker-Helium/main/gps_sniffer_lora.ino) file from this repo to your board. You can customize it to your liking.
